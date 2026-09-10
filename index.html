@@ -1,11 +1,32 @@
+Aqui está o arquivo `index (1).html` atualizado com a adição completa das meta tags de SEO, Open Graph (para redes sociais) e o sistema nativo de alternância de idiomas (PT/EN) usando atributos e CSS, sem a necessidade de bibliotecas externas.
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio profissional de Jorge Andrade — Modern Workplace, infraestrutura, redes, segurança e suporte técnico N3.">
+  
+  <!-- SEO Básico -->
+  <meta name="description" content="Portfólio profissional de Jorge Andrade — Modern Workplace, infraestrutura, redes, segurança e suporte técnico N3. / IT Professional Portfolio - Modern Workplace, L3 Support, Infrastructure & Security.">
+  <meta name="keywords" content="Jorge Andrade, Modern Workplace, IT Infrastructure, Support N3, SysAdmin, Infraestrutura, Redes, Segurança, Avanade, Portfolio">
+  <meta name="author" content="Jorge Andrade">
   <meta name="theme-color" content="#0a0a0a">
   <title>Jorge Andrade // IT Infrastructure & Modern Workplace</title>
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seusite.com.br/">
+  <meta property="og:title" content="Jorge Andrade // IT Infrastructure & Modern Workplace">
+  <meta property="og:description" content="Profissional de Tecnologia com 19 anos de experiência em suporte técnico, infraestrutura, redes e segurança.">
+  <meta property="og:image" content="https://seusite.com.br/og-image.jpg"> <!-- Substitua pelo link real de uma imagem do seu projeto -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://seusite.com.br/">
+  <meta name="twitter:title" content="Jorge Andrade // IT Infrastructure & Modern Workplace">
+  <meta name="twitter:description" content="Profissional de Tecnologia com 19 anos de experiência em suporte técnico, infraestrutura, redes e segurança.">
+  <meta name="twitter:image" content="https://seusite.com.br/og-image.jpg"> <!-- Substitua pelo link real -->
 
   <style>
     :root{
@@ -19,6 +40,10 @@
       --accent-soft:rgba(215,255,63,.10);
       --max:1180px;
     }
+
+    /* Sistema de Idiomas */
+    html[lang="pt-BR"] .lang-en { display: none !important; }
+    html[lang="en"] .lang-pt { display: none !important; }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -59,8 +84,19 @@
     }
     .brand{font-weight:800;letter-spacing:-.04em}
     .brand span{color:var(--accent)}
-    .nav-links{display:flex;gap:28px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+    .nav-links{display:flex;gap:28px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted); align-items:center;}
     .nav-links a:hover{color:var(--accent)}
+
+    .lang-toggle-btn {
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: 800;
+      border: 1px solid var(--line);
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: .2s;
+    }
+    .lang-toggle-btn:hover { background: var(--accent-soft); border-color: var(--accent); }
 
     .hero{
       width:100%;display:grid;grid-template-columns:1.35fr .65fr;gap:80px;
@@ -216,35 +252,49 @@
     <div class="container nav-inner">
       <a class="brand" href="#inicio">Jorge Andrade<span> // </span>IT</a>
       <div class="nav-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#trajetoria">Trajetória</a>
+        <a href="#sobre"><span class="lang-pt">Sobre</span><span class="lang-en">About</span></a>
+        <a href="#trajetoria"><span class="lang-pt">Trajetória</span><span class="lang-en">Experience</span></a>
         <a href="#stack">Stack</a>
-        <a href="#formacao">Formação</a>
-        <a href="#contato">Contato</a>
+        <a href="#formacao"><span class="lang-pt">Formação</span><span class="lang-en">Education</span></a>
+        <a href="#contato"><span class="lang-pt">Contato</span><span class="lang-en">Contact</span></a>
+        <a id="lang-toggle" class="lang-toggle-btn">EN</a>
       </div>
     </div>
   </nav>
 
   <div class="container hero">
     <div>
-      <div class="eyebrow">// infraestrutura · modern workplace · segurança</div>
+      <div class="eyebrow lang-pt">// infraestrutura · modern workplace · segurança</div>
+      <div class="eyebrow lang-en">// infrastructure · modern workplace · security</div>
       <h1>Jorge<br><em>Andrade.</em></h1>
-      <p class="hero-sub">
+      
+      <p class="hero-sub lang-pt">
         Profissional de Tecnologia com <strong>19 anos de experiência</strong> em suporte técnico,
         infraestrutura, administração de redes e segurança da informação.
-        Atualmente atuando em <strong>Analista Sr. Modern Workplace / Suporte N3 na Avanade</strong>.
+        Atualmente atuando como <strong>Analista Sr. Modern Workplace / Suporte N3 na Avanade</strong>.
+      </p>
+      <p class="hero-sub lang-en">
+        Technology professional with <strong>19 years of experience</strong> in technical support,
+        infrastructure, network administration, and information security.
+        Currently working as a <strong>Sr. Modern Workplace Analyst / L3 Support at Avanade</strong>.
       </p>
 
       <div class="hero-actions">
         <a class="btn primary" href="https://linkedin.com/in/jorgeleandro" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="btn" href="https://github.com/jleoandrade" target="_blank" rel="noopener">GitHub ↗</a>
-        <a class="btn" href="#trajetoria">Ver trajetória ↓</a>
+        <a class="btn" href="#trajetoria">
+          <span class="lang-pt">Ver trajetória ↓</span>
+          <span class="lang-en">See experience ↓</span>
+        </a>
       </div>
     </div>
 
     <div class="hero-side">
       <div class="status">
-        <div class="eyebrow"><span class="dot"></span> Recife · PE · Brasil</div>
+        <div class="eyebrow">
+          <span class="dot"></span> Recife · PE · 
+          <span class="lang-pt">Brasil</span><span class="lang-en">Brazil</span>
+        </div>
         <p style="margin-top:16px;color:#aaa">
           Modern Workplace Engineering<br>
           Infrastructure · Networking · Security
@@ -258,43 +308,63 @@
   <section id="sobre">
     <div class="container">
       <div class="section-head">
-        <div class="section-number">01 — SOBRE</div>
+        <div class="section-number">
+          <span class="lang-pt">01 — SOBRE</span>
+          <span class="lang-en">01 — ABOUT</span>
+        </div>
         <div>
-          <h2>Experiência que conecta<br>pessoas, sistemas e infraestrutura.</h2>
-          <p class="lead">
+          <h2 class="lang-pt">Experiência que conecta<br>pessoas, sistemas e infraestrutura.</h2>
+          <h2 class="lang-en">Experience that connects<br>people, systems, and infrastructure.</h2>
+          
+          <p class="lead lang-pt">
             Minha trajetória começou no suporte técnico e evoluiu para ambientes corporativos
             complexos, passando por infraestrutura, redes, virtualização, segurança e
             administração de ambientes Microsoft.
+          </p>
+          <p class="lead lang-en">
+            My career started in IT support and evolved into complex corporate environments, 
+            covering infrastructure, networks, virtualization, security, and Microsoft environments administration.
           </p>
         </div>
       </div>
 
       <div class="about-grid">
-        <div class="card quote">
+        <div class="card quote lang-pt">
           "Tecnologia boa não é a que parece complexa.
           É a que resolve o problema certo com segurança, estabilidade e simplicidade."
+        </div>
+        <div class="card quote lang-en">
+          "Good technology isn't what looks complex.
+          It's what solves the right problem with security, stability, and simplicity."
         </div>
 
         <div class="facts">
           <div class="fact">
-            <span class="eyebrow">Experiência</span>
-            <b>19 anos</b>
-            <small style="color:#888">Tecnologia & Infraestrutura</small>
+            <span class="eyebrow lang-pt">Experiência</span>
+            <span class="eyebrow lang-en">Experience</span>
+            <b><span class="lang-pt">19 anos</span><span class="lang-en">19 years</span></b>
+            <small style="color:#888" class="lang-pt">Tecnologia & Infraestrutura</small>
+            <small style="color:#888" class="lang-en">Technology & Infrastructure</small>
           </div>
           <div class="fact">
-            <span class="eyebrow">Atuação atual</span>
-            <b>Analista Sr. Modern Workplace</b>
+            <span class="eyebrow lang-pt">Atuação atual</span>
+            <span class="eyebrow lang-en">Current Role</span>
+            <b><span class="lang-pt">Analista Sr. Modern Workplace</span><span class="lang-en">Sr. Modern Workplace Analyst</span></b>
             <small style="color:#888">Avanade</small>
           </div>
           <div class="fact">
-            <span class="eyebrow">Base</span>
+            <span class="eyebrow lang-pt">Base</span>
+            <span class="eyebrow lang-en">Location</span>
             <b>Recife</b>
-            <small style="color:#888">Pernambuco · Brasil</small>
+            <small style="color:#888" class="lang-pt">Pernambuco · Brasil</small>
+            <small style="color:#888" class="lang-en">Pernambuco · Brazil</small>
           </div>
           <div class="fact">
-            <span class="eyebrow">Perfil</span>
+            <span class="eyebrow lang-pt">Perfil</span>
+            <span class="eyebrow lang-en">Profile</span>
             <b>Infra + Security</b>
-            <small style="color:#888">Visão prática e sistêmica</small>
+            <small style="color:#888" class="lang-pt">Visão prática e sistêmica</small>
+            <small style="color:#888" class="lang-en">Practical and systemic view</small>
           </div>
         </div>
       </div>
@@ -304,51 +374,82 @@
   <section id="trajetoria">
     <div class="container">
       <div class="section-head">
-        <div class="section-number">02 — TRAJETÓRIA</div>
+        <div class="section-number">
+          <span class="lang-pt">02 — TRAJETÓRIA</span>
+          <span class="lang-en">02 — EXPERIENCE</span>
+        </div>
         <div>
-          <h2>19 anos construindo<br>e sustentando ambientes.</h2>
-          <p class="lead">
+          <h2 class="lang-pt">19 anos construindo<br>e sustentando ambientes.</h2>
+          <h2 class="lang-en">19 years building<br>and sustaining environments.</h2>
+          
+          <p class="lead lang-pt">
             Experiência em diferentes contextos corporativos, com foco em disponibilidade,
             suporte, troubleshooting, infraestrutura e evolução tecnológica.
+          </p>
+          <p class="lead lang-en">
+            Experience in diverse corporate contexts, focusing on availability, support, 
+            troubleshooting, infrastructure, and technological evolution.
           </p>
         </div>
       </div>
 
       <div class="timeline">
         <article class="job">
-          <div class="year">Atual</div>
-          <h3>Avanade — Analista Sr. Modern Workplace</h3>
-          <p>Atuação em suporte técnico avançado e ambientes corporativos Microsoft, com foco em resolução de incidentes, troubleshooting e experiência do usuário.</p>
+          <div class="year">
+            <span class="lang-pt">Atual</span>
+            <span class="lang-en">Current</span>
+          </div>
+          <h3 class="lang-pt">Avanade — Analista Sr. Modern Workplace</h3>
+          <h3 class="lang-en">Avanade — Sr. Modern Workplace Analyst</h3>
+          <p class="lang-pt">Atuação em suporte técnico avançado e ambientes corporativos Microsoft, com foco em resolução de incidentes, troubleshooting e experiência do usuário.</p>
+          <p class="lang-en">Advanced technical support in Microsoft corporate environments, focusing on incident resolution, troubleshooting, and user experience.</p>
         </article>
 
         <article class="job">
-          <div class="year">Experiência anterior</div>
+          <div class="year">
+            <span class="lang-pt">Experiência anterior</span>
+            <span class="lang-en">Previous experience</span>
+          </div>
           <h3>Amazon</h3>
-          <p>Atuação em ambiente corporativo de grande escala, suporte e infraestrutura, desenvolvendo capacidade de troubleshooting e operação sob pressão.</p>
+          <p class="lang-pt">Atuação em ambiente corporativo de grande escala, suporte e infraestrutura, desenvolvendo capacidade de troubleshooting e operação sob pressão.</p>
+          <p class="lang-en">Corporate environment support and infrastructure in large-scale operations, developing troubleshooting skills and capacity to work under pressure.</p>
         </article>
 
         <article class="job">
-          <div class="year">Experiência anterior</div>
+          <div class="year">
+            <span class="lang-pt">Experiência anterior</span>
+            <span class="lang-en">Previous experience</span>
+          </div>
           <h3>Klabin</h3>
-          <p>Experiência relacionada a infraestrutura, redes, administração de ambientes e suporte tecnológico corporativo.</p>
+          <p class="lang-pt">Experiência relacionada a infraestrutura, redes, administração de ambientes e suporte tecnológico corporativo.</p>
+          <p class="lang-en">Experience related to infrastructure, networks, environment administration, and corporate tech support.</p>
         </article>
 
         <article class="job">
-          <div class="year">Experiência anterior</div>
+          <div class="year">
+            <span class="lang-pt">Experiência anterior</span>
+            <span class="lang-en">Previous experience</span>
+          </div>
           <h3>HSBC</h3>
-          <p>Atuação em ambiente bancário, contribuindo para operações de tecnologia com foco em estabilidade, processos e suporte.</p>
+          <p class="lang-pt">Atuação em ambiente bancário, contribuindo para operações de tecnologia com foco em estabilidade, processos e suporte.</p>
+          <p class="lang-en">Banking environment operations, contributing to IT stability, processes, and support routines.</p>
         </article>
 
         <article class="job">
-          <div class="year">Experiência anterior</div>
+          <div class="year">
+            <span class="lang-pt">Experiência anterior</span>
+            <span class="lang-en">Previous experience</span>
+          </div>
           <h3>Jornal do Commercio</h3>
-          <p>Experiência em suporte e infraestrutura, formando a base prática da trajetória profissional em Tecnologia da Informação.</p>
+          <p class="lang-pt">Experiência em suporte e infraestrutura, formando a base prática da trajetória profissional em Tecnologia da Informação.</p>
+          <p class="lang-en">Support and infrastructure experience, forming the practical foundation of my IT professional career.</p>
         </article>
       </div>
 
       <div style="margin-top:55px">
         <a class="btn" href="https://linkedin.com/in/jorgeleandro" target="_blank" rel="noopener">
-          Histórico completo no LinkedIn ↗
+          <span class="lang-pt">Histórico completo no LinkedIn ↗</span>
+          <span class="lang-en">Full history on LinkedIn ↗</span>
         </a>
       </div>
     </div>
@@ -359,17 +460,24 @@
       <div class="section-head">
         <div class="section-number">03 — STACK</div>
         <div>
-          <h2>Ferramentas para<br>resolver problemas reais.</h2>
-          <p class="lead">
+          <h2 class="lang-pt">Ferramentas para<br>resolver problemas reais.</h2>
+          <h2 class="lang-en">Tools to solve<br>real problems.</h2>
+          
+          <p class="lead lang-pt">
             Uma stack construída principalmente pela experiência prática em ambientes corporativos,
             suporte, infraestrutura, redes, automação e segurança.
+          </p>
+          <p class="lead lang-en">
+            A stack built primarily through practical experience in corporate environments, 
+            support, infrastructure, networking, automation, and security.
           </p>
         </div>
       </div>
 
       <div class="stack-grid">
         <div class="stack-card">
-          <h3>🖥️ Sistemas & Virtualização</h3>
+          <h3 class="lang-pt">🖥️ Sistemas & Virtualização</h3>
+          <h3 class="lang-en">🖥️ Systems & Virtualization</h3>
           <div class="chips">
             <span class="chip">Linux</span><span class="chip">Windows</span>
             <span class="chip">Windows Server</span><span class="chip">VMware</span>
@@ -378,7 +486,8 @@
         </div>
 
         <div class="stack-card">
-          <h3>🔒 Redes & Segurança</h3>
+          <h3 class="lang-pt">🔒 Redes & Segurança</h3>
+          <h3 class="lang-en">🔒 Networking & Security</h3>
           <div class="chips">
             <span class="chip">FortiGate</span><span class="chip">Mikrotik</span>
             <span class="chip">Switches</span><span class="chip">VLAN</span>
@@ -387,7 +496,8 @@
         </div>
 
         <div class="stack-card">
-          <h3>⚙️ Automação & Gestão</h3>
+          <h3 class="lang-pt">⚙️ Automação & Gestão</h3>
+          <h3 class="lang-en">⚙️ Automation & Management</h3>
           <div class="chips">
             <span class="chip">Control-M</span><span class="chip">Shell Script</span>
             <span class="chip">SCCM</span><span class="chip">SQL</span>
@@ -397,10 +507,26 @@
       </div>
 
       <div class="competencies">
-        <div class="comp"><strong>N3</strong><span>Suporte técnico avançado e troubleshooting</span></div>
-        <div class="comp"><strong>Infra</strong><span>Servidores, virtualização e ambientes corporativos</span></div>
-        <div class="comp"><strong>Net</strong><span>Redes, switches, VLANs e firewalls</span></div>
-        <div class="comp"><strong>Sec</strong><span>Segurança da informação e hardening operacional</span></div>
+        <div class="comp">
+          <strong>N3</strong>
+          <span class="lang-pt">Suporte técnico avançado e troubleshooting</span>
+          <span class="lang-en">Advanced technical support and troubleshooting</span>
+        </div>
+        <div class="comp">
+          <strong>Infra</strong>
+          <span class="lang-pt">Servidores, virtualização e ambientes corporativos</span>
+          <span class="lang-en">Servers, virtualization, and corporate environments</span>
+        </div>
+        <div class="comp">
+          <strong>Net</strong>
+          <span class="lang-pt">Redes, switches, VLANs e firewalls</span>
+          <span class="lang-en">Networks, switches, VLANs, and firewalls</span>
+        </div>
+        <div class="comp">
+          <strong>Sec</strong>
+          <span class="lang-pt">Segurança da informação e hardening operacional</span>
+          <span class="lang-en">Information security and operational hardening</span>
+        </div>
       </div>
     </div>
   </section>
@@ -408,12 +534,21 @@
   <section id="formacao">
     <div class="container">
       <div class="section-head">
-        <div class="section-number">04 — FORMAÇÃO</div>
+        <div class="section-number">
+          <span class="lang-pt">04 — FORMAÇÃO</span>
+          <span class="lang-en">04 — EDUCATION</span>
+        </div>
         <div>
-          <h2>Base acadêmica.<br>Experiência prática.</h2>
-          <p class="lead">
+          <h2 class="lang-pt">Base acadêmica.<br>Experiência prática.</h2>
+          <h2 class="lang-en">Academic foundation.<br>Practical experience.</h2>
+          
+          <p class="lead lang-pt">
             Formação em Computação e especialização em Segurança da Informação,
             complementadas por anos de experiência em ambientes de produção.
+          </p>
+          <p class="lead lang-en">
+            Degree in Computer Science and specialization in Information Security, 
+            complemented by years of production environment experience.
           </p>
         </div>
       </div>
@@ -421,20 +556,24 @@
       <div class="education">
         <div class="edu-card">
           <div class="icon">🎓</div>
-          <h3>Pós-graduação em Segurança da Informação</h3>
+          <h3 class="lang-pt">Pós-graduação em Segurança da Informação</h3>
+          <h3 class="lang-en">Postgraduate Degree in Information Security</h3>
           <p>UNIBRATEC · 2011–2012</p>
         </div>
 
         <div class="edu-card">
           <div class="icon">🎓</div>
-          <h3>Bacharelado em Ciências da Computação</h3>
+          <h3 class="lang-pt">Bacharelado em Ciências da Computação</h3>
+          <h3 class="lang-en">Bachelor's Degree in Computer Science</h3>
           <p>Faculdade Pernambucana — FAPE · 2007–2011</p>
         </div>
       </div>
 
       <div class="languages">
-        <span class="language">🇺🇸 Inglês · Avançado</span>
-        <span class="language">🇪🇸 Espanhol · Intermediário</span>
+        <span class="language lang-pt">🇺🇸 Inglês · Avançado</span>
+        <span class="language lang-en">🇺🇸 English · Advanced</span>
+        <span class="language lang-pt">🇪🇸 Espanhol · Intermediário</span>
+        <span class="language lang-en">🇪🇸 Spanish · Intermediate</span>
       </div>
     </div>
   </section>
@@ -442,11 +581,20 @@
   <section id="contato" class="contact">
     <div class="container contact-inner">
       <div>
-        <div class="eyebrow">05 — CONECTAR</div>
-        <h2>Vamos conversar sobre tecnologia.</h2>
-        <p class="contact-copy">
+        <div class="eyebrow">
+          <span class="lang-pt">05 — CONECTAR</span>
+          <span class="lang-en">05 — CONNECT</span>
+        </div>
+        <h2 class="lang-pt">Vamos conversar sobre tecnologia.</h2>
+        <h2 class="lang-en">Let's talk about technology.</h2>
+        
+        <p class="contact-copy lang-pt">
           Infraestrutura, Modern Workplace, segurança, suporte, automação ou novos desafios profissionais.
           Meu histórico completo e projetos podem ser acompanhados pelos canais abaixo.
+        </p>
+        <p class="contact-copy lang-en">
+          Infrastructure, Modern Workplace, security, support, automation, or new professional challenges.
+          You can follow my complete history and projects through the channels below.
         </p>
       </div>
 
@@ -458,7 +606,9 @@
           <span>GitHub</span><span>↗</span>
         </a>
         <a class="contact-link" href="https://github.com/jleoandrade" target="_blank" rel="noopener">
-          <span>Projetos & Código</span><span>↗</span>
+          <span class="lang-pt">Projetos & Código</span>
+          <span class="lang-en">Projects & Code</span>
+          <span>↗</span>
         </a>
       </div>
     </div>
@@ -468,12 +618,13 @@
 <footer>
   <div class="container footer-inner">
     <span>JORGE ANDRADE // IT INFRASTRUCTURE</span>
-    <span>RECIFE · PE · BRASIL · 2026</span>
+    <span class="lang-pt">RECIFE · PE · BRASIL · 2026</span>
+    <span class="lang-en">RECIFE · PE · BRAZIL · 2026</span>
   </div>
 </footer>
 
 <script>
-  // Pequeno efeito de entrada sem dependências externas.
+  // Efeito de entrada
   const items = document.querySelectorAll('.card, .stack-card, .comp, .edu-card, .job');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -490,6 +641,22 @@
     });
   }, {threshold:.08});
   items.forEach(item => observer.observe(item));
+
+  // Toggle de Idioma PT/EN
+  const langBtn = document.getElementById('lang-toggle');
+  const htmlTag = document.documentElement;
+
+  langBtn.addEventListener('click', () => {
+    if (htmlTag.getAttribute('lang') === 'pt-BR') {
+      htmlTag.setAttribute('lang', 'en');
+      langBtn.innerText = 'PT';
+    } else {
+      htmlTag.setAttribute('lang', 'pt-BR');
+      langBtn.innerText = 'EN';
+    }
+  });
 </script>
 </body>
 </html>
+
+```
