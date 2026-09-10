@@ -2,7 +2,7 @@
 
 Este é o repositório do meu **site de portfólio pessoal**, desenvolvido para centralizar meus principais projetos, habilidades técnicas, experiências e formas de contato de maneira clara, moderna e responsiva.
 
-🚀 **Acesse o projeto online:** [portfolio-jorge-andrade.vercel.app](https://vercel.app)
+🚀 **Acesse o projeto online:** [jorgeandrade.vercel.app](https://vercel.app)
 
 ---
 
